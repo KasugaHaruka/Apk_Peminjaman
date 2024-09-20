@@ -17,7 +17,7 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
         .gradient {
-            background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+            background: linear-gradient(90deg, #d53333 0%, #f8f8f8 100%);
         }
     </style>
 </head>
@@ -38,7 +38,7 @@
                 </ul>
                 <a id="navAction"
                     class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out justify-end"
-                    href="/login">
+                    href="/home">
                     Login
                 </a>
             </div>
@@ -46,7 +46,7 @@
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
     <!--Hero-->
-    <div class="pt-24">
+    <div class="pt-3">
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
