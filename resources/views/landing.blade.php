@@ -29,7 +29,7 @@
             <div class="pl-4 flex items-center">
                 <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
                     href="#">
-                    Peminjaman
+                    Peminjaman Alat Teknik Pemesinan
                 </a>
             </div>
             <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
@@ -51,7 +51,7 @@
             <!--Left Col-->
             <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
                 <h1 class="my-4 text-5xl font-bold leading-tight">
-                    Selamat Datang Di Aplikasi Peminjaman Alat
+                    Selamat Datang Di Aplikasi Peminjaman Alat Teknik Pemesinan
                 </h1>
                 <p class="leading-normal text-2xl mb-8">
                     Aplikasi Peminjaman Alat Di Gunakan Untuk Mempermudah Pencatatan Peminjaman
@@ -97,10 +97,10 @@
             <div class="flex flex-wrap">
                 <div class="w-5/6 sm:w-1/2 p-6">
                     <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                      Efisiensi dan Kemudahan Pengelolaan Barang
+                      Efisiensi dan Kemudahan Pengelolaan Alat
                     </h3>
                     <p class="text-gray-600 mb-8">
-                      Aplikasi peminjaman barang memungkinkan pengguna untuk mengelola proses peminjaman dengan lebih efisien. Semua data barang yang dipinjam, siapa yang meminjam, dan durasi peminjaman bisa dikelola dalam satu platform terpusat. Pengguna dapat dengan mudah melacak stok barang, riwayat peminjaman, serta mengurangi risiko kehilangan barang. Selain itu, aplikasi ini membantu menghemat waktu dibandingkan dengan pencatatan manual.
+                      Aplikasi peminjaman alat memungkinkan pengguna untuk mengelola proses peminjaman dengan lebih efisien. Semua data alat yang dipinjam, siapa yang meminjam, dan durasi peminjaman bisa dikelola dalam satu platform terpusat. Pengguna dapat dengan mudah melacak stok alat, riwayat peminjaman, serta mengurangi risiko kehilangan alat. Selain itu, aplikasi ini membantu menghemat waktu dibandingkan dengan pencatatan manual.
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
@@ -117,7 +117,7 @@
                           Pencatatan dan Pelaporan yang Akurat
                         </h3>
                         <p class="text-gray-600 mb-8">
-                          Dengan menggunakan aplikasi, pencatatan data barang dan transaksi peminjaman menjadi lebih akurat. Setiap aktivitas peminjaman dan pengembalian barang tercatat secara otomatis, mengurangi risiko kesalahan manusia. Aplikasi juga dapat menghasilkan laporan yang terperinci kapan saja, sehingga memudahkan manajemen dalam membuat keputusan berdasarkan data yang aktual dan akurat.
+                          Dengan menggunakan aplikasi, pencatatan data alat dan transaksi peminjaman menjadi lebih akurat. Setiap aktivitas peminjaman dan pengembalian alat tercatat secara otomatis, mengurangi risiko kesalahan manusia. Aplikasi juga dapat menghasilkan laporan yang terperinci kapan saja, sehingga memudahkan manajemen dalam membuat keputusan berdasarkan data yang aktual dan akurat.
                         </p>
                     </div>
                 </div>
