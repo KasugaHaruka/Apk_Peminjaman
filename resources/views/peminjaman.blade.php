@@ -20,7 +20,7 @@
                         <th>Nama Siswa</th>
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
-                        <th>Nama Barang</th>
+                        <th>Nama Alat</th>
                         <th>Kondisi</th>
                         <th>Aksi</th>
                     </tr>

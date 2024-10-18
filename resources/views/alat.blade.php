@@ -3,11 +3,32 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<div class="d-flex justify-content-between align-items-center">
     <h1>Data Alat</h1>
+    <button class="btn btn-primary">Tambahkan <i class="fas fa-plus-circle"></i></button>
+</div>
 @stop
 
 @section('content')
-    <div></div>
+<div class="card card-outline card-dark">
+    <div class="card-body">
+        <!-- Tabel DataTables -->
+        <table id="peminjamanTable" class="table table-bordered table-striped table-responsive-xl">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Alat</th>
+                    <th>Kondisi</th>
+                    <th>Stok Alat</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
 @stop
 
 @section('css')
