@@ -45,7 +45,7 @@
         </div>
         <div class="card-body">
             <!-- Tabel DataTables -->
-            <table id="homeTable" class="table table-bordered table-striped">
+            <table id="homeTable" class="table table-bordered table-striped table-responsive-xl">
                 <thead>
                     <tr>
                         <th>No</th>

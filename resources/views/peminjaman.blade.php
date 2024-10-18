@@ -13,7 +13,7 @@
     <div class="card card-outline card-dark">
         <div class="card-body">
             <!-- Tabel DataTables -->
-            <table id="peminjamanTable" class="table table-bordered table-striped">
+            <table id="peminjamanTable" class="table table-bordered table-striped table-responsive-xl">
                 <thead>
                     <tr>
                         <th>No</th>
