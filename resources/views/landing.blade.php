@@ -125,13 +125,12 @@
         </div>
     </section>
     <!--Footer-->
-    <footer class="bg-white">
+    <footer class="bg-dark">
         <div class="container mx-auto px-8">
             <div class="w-full flex flex-col items-center md:flex-row justify-center py-6">
                 <div class="flex-1 text-center">
-                    <p class="uppercase text-black font-bold text-xl md:mb-6">
-                        Aplikasi dibuat oleh siswa RPL 1:<br>
-                        Alfian Syahrul Ramadhan<br>
+                    <p class="uppercase text-white font-bold text-xl md:mb-6">
+                        Aplikasi dibuat oleh siswa RPL 1<br>
                         &copy; 2024
                     </p>
                 </div>

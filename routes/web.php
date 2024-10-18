@@ -19,4 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
+// Dasboard Route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Peminjaman Route
+Route::get('/admin/peminjaman', [App\Http\Controllers\PeminjamanController::class, 'index']);
+
+// Siswa Route
+Route::get('/admin/siswa', [App\Http\Controllers\SiswaController::class, 'index']);
+
+// Alat Route
+Route::get('/admin/alat', [App\Http\Controllers\AlatController::class, 'index']);
+
+// Laporan Route
+Route::get('/admin/laporan', [App\Http\Controllers\LaporanController::class, 'index']);
