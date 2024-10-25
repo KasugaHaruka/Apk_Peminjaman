@@ -56,7 +56,7 @@
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
                         <th>Status</th>
-                        <th>Nama Barang</th>
+                        <th>Nama Alat</th>
                         <th>Kondisi</th>
                     </tr>
                 </thead>
