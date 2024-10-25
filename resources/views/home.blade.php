@@ -21,7 +21,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-info"><i class="fas fa-truck"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Barang Di Pinjam</span>
+                    <span class="info-box-text">Alat Di Pinjam</span>
                     <span class="info-box-number">80</span>
                 </div>
             </div>
@@ -30,7 +30,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-warning"><i class="fas fa-boxes"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Barang Kembali</span>
+                    <span class="info-box-text">Alat Kembali</span>
                     <span class="info-box-number">60</span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
 
     <div class="card card-outline card-dark">
         <div class="card-header">
-            <h2 class="card-title">Data Peminjaman Terbaru</h2>
+            <h2 class="card-title "><b>Peminjaman Hari Ini</b></h2>
             <div class="card-tools">
             </div>
         </div>

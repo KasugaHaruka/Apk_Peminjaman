@@ -29,18 +29,26 @@
             <div class="pl-4 flex items-center">
                 <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
                     href="#">
-                    Peminjaman Alat Teknik Pemesinan
+                    Peminjaman Alat
                 </a>
             </div>
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
                 id="nav-content">
-                <ul class="list-reset lg:flex justify-end flex-1 items-center">
+                <!-- Bagian kiri (Peminjaman Alat) -->
+                <ul class="list-reset lg:flex flex-1 items-center justify-start">
+                    <li class="mr-6">
+                    
+                    </li>
                 </ul>
-                <a id="navAction"
-                    class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out justify-end"
-                    href="/home">
-                    Login
-                </a>
+
+                <!-- Bagian kanan (Button Login) -->
+                <div class="lg:flex lg:items-center justify-end flex">
+                    <a id="navAction"
+                        class="hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-3 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                        href="/home">
+                        Login
+                    </a>
+                </div>
             </div>
         </div>
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
@@ -97,27 +105,35 @@
             <div class="flex flex-wrap">
                 <div class="w-5/6 sm:w-1/2 p-6">
                     <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                      Efisiensi dan Kemudahan Pengelolaan Alat
+                        Efisiensi dan Kemudahan Pengelolaan Alat
                     </h3>
                     <p class="text-gray-600 mb-8">
-                      Aplikasi peminjaman alat memungkinkan pengguna untuk mengelola proses peminjaman dengan lebih efisien. Semua data alat yang dipinjam, siapa yang meminjam, dan durasi peminjaman bisa dikelola dalam satu platform terpusat. Pengguna dapat dengan mudah melacak stok alat, riwayat peminjaman, serta mengurangi risiko kehilangan alat. Selain itu, aplikasi ini membantu menghemat waktu dibandingkan dengan pencatatan manual.
+                        Aplikasi peminjaman alat memungkinkan pengguna untuk mengelola proses peminjaman dengan lebih
+                        efisien. Semua data alat yang dipinjam, siapa yang meminjam, dan durasi peminjaman bisa dikelola
+                        dalam satu platform terpusat. Pengguna dapat dengan mudah melacak stok alat, riwayat peminjaman,
+                        serta mengurangi risiko kehilangan alat. Selain itu, aplikasi ini membantu menghemat waktu
+                        dibandingkan dengan pencatatan manual.
                     </p>
                 </div>
                 <div class="w-full sm:w-1/2 p-6">
-                  <img src="{{ asset('/images/mudah.png') }}" alt="Logo">
+                    <img src="{{ asset('/images/mudah.png') }}" alt="Logo">
                 </div>
             </div>
             <div class="flex flex-wrap flex-col-reverse sm:flex-row">
                 <div class="w-full sm:w-1/2 p-6 mt-6">
-                  <img src="{{ asset('/images/lapor.png') }}" alt="Logo">
+                    <img src="{{ asset('/images/lapor.png') }}" alt="Logo">
                 </div>
                 <div class="w-full sm:w-1/2 p-6 mt-6">
                     <div class="align-middle">
                         <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                          Pencatatan dan Pelaporan yang Akurat
+                            Pencatatan dan Pelaporan yang Akurat
                         </h3>
                         <p class="text-gray-600 mb-8">
-                          Dengan menggunakan aplikasi, pencatatan data alat dan transaksi peminjaman menjadi lebih akurat. Setiap aktivitas peminjaman dan pengembalian alat tercatat secara otomatis, mengurangi risiko kesalahan manusia. Aplikasi juga dapat menghasilkan laporan yang terperinci kapan saja, sehingga memudahkan manajemen dalam membuat keputusan berdasarkan data yang aktual dan akurat.
+                            Dengan menggunakan aplikasi, pencatatan data alat dan transaksi peminjaman menjadi lebih
+                            akurat. Setiap aktivitas peminjaman dan pengembalian alat tercatat secara otomatis,
+                            mengurangi risiko kesalahan manusia. Aplikasi juga dapat menghasilkan laporan yang
+                            terperinci kapan saja, sehingga memudahkan manajemen dalam membuat keputusan berdasarkan
+                            data yang aktual dan akurat.
                         </p>
                     </div>
                 </div>
@@ -136,7 +152,7 @@
                 </div>
             </div>
         </div>
-      </footer>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         var scrollpos = window.scrollY;
