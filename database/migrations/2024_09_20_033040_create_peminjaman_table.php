@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('siswa_id')->references('id')->on('siswa')->onDelete('cascade');
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
-            $table->foreignId('barang_id')->references('id')->on('barang')->onDelete('cascade');
+            $table->foreignId('alat_id')->references('id')->on('alat')->onDelete('cascade');
             $table->timestamps();
         });
     }

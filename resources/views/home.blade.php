@@ -30,7 +30,7 @@
             <div class="info-box">
                 <span class="info-box-icon bg-warning"><i class="fas fa-boxes"></i></span>
                 <div class="info-box-content">
-                    <span class="info-box-text">Alat Kembali</span>
+                    <span class="info-box-text">Alat Sudah Kembali</span>
                     <span class="info-box-number">60</span>
                 </div>
             </div>
@@ -41,6 +41,9 @@
         <div class="card-header">
             <h2 class="card-title "><b>Peminjaman Hari Ini</b></h2>
             <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" fdprocessedid="69z2w9">
+                  <i class="fas fa-minus"></i>
+                </button>
             </div>
         </div>
         <div class="card-body">
@@ -52,9 +55,9 @@
                         <th>Nama Siswa</th>
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
+                        <th>Status</th>
                         <th>Nama Barang</th>
                         <th>Kondisi</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
