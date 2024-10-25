@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('alat', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_alat');
+            $table->enum('kondisi',['Baik', 'Rusak']);
+            $table->integer('stok');
             $table->timestamps();
         });
     }

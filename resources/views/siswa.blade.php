@@ -25,7 +25,26 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <a href="/editbarang/" type="button"
+                                class="btn btn-warning">
+                                Ubah
+                            </a>
+                            <form action="/hapus/" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Apakah Kamu Yakin?')">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                 </tbody>
             </table>
         </div>

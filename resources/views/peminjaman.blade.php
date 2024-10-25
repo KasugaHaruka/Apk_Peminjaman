@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
         <h1>Data Peminjaman</h1>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modal-peminjaman">Tambahkan <i class="fas fa-plus-circle"></i></button>
+        <a href="/tambahpeminjaman" class="btn btn-primary">Tambahkan <i class="fas fa-plus-circle"></i></a>
     </div>
 @stop
 
@@ -22,12 +22,36 @@
                         <th>Tanggal Kembali</th>
                         <th>Status</th>
                         <th>Nama Alat</th>
+                        <th>Jumlah</th>
                         <th>Kondisi</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-
+                    <td>1</td>
+                    <td>Alfian Syahrul R</td>
+                    <td>05-10-2024</td>
+                    <td>10-10-2024</td>
+                    <td>Dipinjam</td>
+                    <td>Obeng</td>
+                    <td>1</td>
+                    <td>Baik</td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <a href="/editbarang/" type="button"
+                                class="btn btn-warning">
+                                Ubah
+                            </a>
+                            <form action="/hapus/" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Apakah Kamu Yakin?')">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                 </tbody>
             </table>
         </div>
@@ -115,6 +139,7 @@
 @section('js')
     <!-- Inisialisasi DataTables -->
     <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
             $('#peminjamanTable').DataTable(); // Inisialisasi DataTables untuk tabel dengan id "example"

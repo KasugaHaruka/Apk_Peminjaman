@@ -17,42 +17,32 @@
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
         .gradient {
-            background: linear-gradient(90deg, #d53333 0%, #f8f8f8 100%);
+            background: linear-gradient(90deg, #d41616 0%, #f98080 100%);
         }
     </style>
 </head>
 
 <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
-    <nav id="header" class="fixed w-full z-30 top-0 text-white">
-        <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+    <nav id="header" class="fixed w-full z-30 top-0 bg-white text-black shadow">
+        <div class="w-full container mx-auto flex flex-wrap items-center justify-between py-2">
             <div class="pl-4 flex items-center">
-                <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
-                    href="#">
+                <a class="text-gray no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
                     Peminjaman Alat
                 </a>
             </div>
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20"
-                id="nav-content">
-                <!-- Bagian kiri (Peminjaman Alat) -->
-                <ul class="list-reset lg:flex flex-1 items-center justify-start">
-                    <li class="mr-6">
-                    
-                    </li>
-                </ul>
-
-                <!-- Bagian kanan (Button Login) -->
-                <div class="lg:flex lg:items-center justify-end flex">
-                    <a id="navAction"
-                        class="hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-3 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-                        href="/home">
-                        Login
-                    </a>
-                </div>
+    
+            <!-- Bagian kanan (Button Login di row yang sama) -->
+            <div class="lg:flex lg:items-center justify-end flex">
+                <a id="navAction"
+                    class="hover:underline bg-blue-500 text-white font-bold rounded-full py-2 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                    href="/home">
+                    Login
+                </a>
             </div>
         </div>
         <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
-    </nav>
+    </nav>    
     <!--Hero-->
     <div class="pt-3">
         <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
@@ -236,6 +226,14 @@
             }
             return false;
         }
+        document.getElementById('nav-toggle').onclick = function() {
+            var nav = document.getElementById('nav-content');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+            } else {
+                nav.classList.add('hidden');
+            }
+        };
     </script>
 </body>
 

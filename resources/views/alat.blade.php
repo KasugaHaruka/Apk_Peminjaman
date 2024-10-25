@@ -13,7 +13,7 @@
     <div class="card card-outline card-dark">
         <div class="card-body">
             <!-- Tabel DataTables -->
-            <table id="alatTable" class="table table-bordered table-striped table-responsive-xl">
+            <table id="alatTable" class="table table-bordered table-hover table-responsive-xl">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -24,7 +24,26 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <a href="/editbarang/" type="button"
+                                class="btn btn-warning">
+                                Ubah
+                            </a>
+                            <form action="/hapus/" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"
+                                    onclick="return confirm('Apakah Kamu Yakin?')">
+                                    Hapus
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                 </tbody>
             </table>
         </div>
