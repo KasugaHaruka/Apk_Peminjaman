@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Siswa;
 
 class SiswaController extends Controller
 {
@@ -11,7 +12,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return view('siswa');
+        $siswa = Siswa::all();
+        return view('siswa', ['siswa' => $siswa]);
     }
 
     /**
@@ -19,7 +21,7 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('fungsi.tambahsiswa');
     }
 
     /**
@@ -27,7 +29,9 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        siswa::create($request->except(['_token', 'submit']));
+        return redirect('/admin/siswa');
     }
 
     /**
@@ -43,7 +47,8 @@ class SiswaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $siswa = Siswa::find($id);
+        return view('fungsi.editsiswa',compact(['siswa']));
     }
 
     /**
@@ -51,7 +56,9 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->update($request->except(['_token','submit']));
+        return redirect('/admin/siswa');
     }
 
     /**
@@ -59,6 +66,9 @@ class SiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+        // $delete = TokoAtk::where("id", $id)->delete();
+        return redirect('/admin/siswa');
     }
 }

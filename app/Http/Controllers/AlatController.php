@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Alat;
 
 class AlatController extends Controller
 {
@@ -11,7 +12,8 @@ class AlatController extends Controller
      */
     public function index()
     {
-        return view('alat');
+        $alat = Alat::all();
+        return view('alat', ['alat' => $alat]);
     }
 
     /**
@@ -19,7 +21,7 @@ class AlatController extends Controller
      */
     public function create()
     {
-        //
+        return view('fungsi.tambahalat');
     }
 
     /**
@@ -27,7 +29,8 @@ class AlatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alat::create($request->execpt(['_token', 'submit']));
+        return redirect('/admin/alat');
     }
 
     /**
@@ -43,7 +46,8 @@ class AlatController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $alat = Alat::Find($id);
+        return view('fungsi.editalat', compact(['alat']));
     }
 
     /**
@@ -51,7 +55,9 @@ class AlatController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $alat = Alat::Find($id);
+        $alat ->update($request->except('_token','submit'));
+        return redirect('/admin/alat');
     }
 
     /**
@@ -59,6 +65,8 @@ class AlatController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $alat = Alat::Find($id);
+        $alat -> delete();
+        return redirect('/admin/alat');
     }
 }

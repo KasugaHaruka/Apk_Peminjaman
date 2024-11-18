@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Peminjaman extends Model
 {
     use HasFactory;
+    protected $table = 'peminjaman';
+    protected $guarded = [];
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'siswa_id');
+    }
+    public function alat()
+    {
+        return $this->belongsTo(Alat::class, 'alat_id');
+    }
 }

@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <div class="info-box">
                 <span class="info-box-icon bg-success"><i class="far fa-user-circle"></i></span>
                 <div class="info-box-content">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <div class="info-box">
                 <span class="info-box-icon bg-info"><i class="fas fa-truck"></i></span>
                 <div class="info-box-content">
@@ -26,12 +26,21 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-3">
             <div class="info-box">
                 <span class="info-box-icon bg-warning"><i class="fas fa-boxes"></i></span>
                 <div class="info-box-content">
                     <span class="info-box-text">Alat Sudah Kembali</span>
                     <span class="info-box-number">60</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="info-box">
+                <span class="info-box-icon bg-danger"><i class="fas fa-house-damage"></i></span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Alat Kondisi Rusak</span>
+                    <span class="info-box-number">4</span>
                 </div>
             </div>
         </div>
@@ -48,7 +57,7 @@
         </div>
         <div class="card-body">
             <!-- Tabel DataTables -->
-            <table id="homeTable" class="table table-bordered table-striped table-responsive-xl">
+            <table id="homeTable" class="table table-bordered table-responsive-xl table-hover">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -59,6 +68,7 @@
                         <th>Nama Alat</th>
                         <th>Jumlah</th>
                         <th>Kondisi</th>
+                        <th>Keterangan</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -13,7 +13,7 @@
     <div class="card card-outline card-dark">
         <div class="card-body">
             <!-- Tabel DataTables -->
-            <table id="peminjamanTable" class="table table-bordered table-striped table-responsive-xl">
+            <table id="peminjamanTable" class="table table-bordered table-responsive-xl table-hover">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -24,6 +24,7 @@
                         <th>Nama Alat</th>
                         <th>Jumlah</th>
                         <th>Kondisi</th>
+                        <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -36,6 +37,7 @@
                     <td>Obeng</td>
                     <td>1</td>
                     <td>Baik</td>
+                    <td>Di Gunakan Untuk Pembelajaran</td>
                     <td>
                         <div class="d-flex align-items-center">
                             <a href="/editbarang/" type="button"

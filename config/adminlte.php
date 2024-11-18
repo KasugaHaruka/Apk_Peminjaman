@@ -110,7 +110,7 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'mode' => 'fullscreen',
         'img' => [
             'path' => '/images/logo.png',
@@ -215,9 +215,9 @@ return [
     */
 
     'sidebar_mini' => 'lg',
-    'sidebar_collapse' => false,
-    'sidebar_collapse_auto_size' => false,
-    'sidebar_collapse_remember' => false,
+    'sidebar_collapse' => true,
+    'sidebar_collapse_auto_size' => true,
+    'sidebar_collapse_remember' => true,
     'sidebar_collapse_remember_no_transition' => true,
     'sidebar_scrollbar_theme' => 'os-theme-light',
     'sidebar_scrollbar_auto_hide' => 'l',
@@ -311,11 +311,6 @@ return [
             'icon' => 'fas fa-fw fa-home',
         ],
         [
-            'text' => 'Peminjaman',
-            'url' => 'admin/peminjaman',
-            'icon' => 'fas fa-fw fa-table',
-        ],
-        [
             'text' => 'Siswa',
             'url' => 'admin/siswa',
             'icon' => 'fas fa-fw fa-users',
@@ -324,6 +319,11 @@ return [
             'text' => 'Alat',
             'url' => 'admin/alat',
             'icon' => 'fas fa-fw fa-tools',
+        ],
+        [
+            'text' => 'Peminjaman',
+            'url' => 'admin/peminjaman',
+            'icon' => 'fas fa-fw fa-table',
         ],
         [
             'text' => 'Laporan',
