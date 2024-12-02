@@ -57,13 +57,6 @@
                                         required>
                                 </td>
                                 <td>
-                                    <select class="form-control" name="kondisi[]" required>
-                                        <option value="">-- Pilih Kondisi --</option>
-                                        <option value="Baik">Baik</option>
-                                        <option value="Rusak">Rusak</option>
-                                    </select>
-                                </td>
-                                <td>
                                     <button type="button" class="btn btn-success" id="addRow">Tambah</button>
                                 </td>
                             </tr>

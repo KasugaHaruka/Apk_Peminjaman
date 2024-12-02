@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kelas;
 
-class KembaliPeminajamanController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $kelas = Kelas::all();
+        return view('kelas', ['kelas' => $kelas]);
     }
 
     /**
@@ -19,7 +21,7 @@ class KembaliPeminajamanController extends Controller
      */
     public function create()
     {
-        //
+        return view('fungsi.tambahkelas');
     }
 
     /**
@@ -27,7 +29,8 @@ class KembaliPeminajamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kelas::create($request->except(['_token', 'submit']));
+        return redirect('/admin/kelas');
     }
 
     /**
@@ -43,7 +46,8 @@ class KembaliPeminajamanController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $kelas = Kelas::Find($id);
+        return view('fungsi.editkelas', compact(['kelas']));
     }
 
     /**
@@ -51,7 +55,9 @@ class KembaliPeminajamanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $kelas = Kelas::Find($id);
+        $kelas ->update($request->except('_token','submit'));
+        return redirect('/admin/kelas');
     }
 
     /**
@@ -59,6 +65,8 @@ class KembaliPeminajamanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $kelas = Kelas::Find($id);
+        $kelas -> delete();
+        return redirect('/admin/kelas');
     }
 }
