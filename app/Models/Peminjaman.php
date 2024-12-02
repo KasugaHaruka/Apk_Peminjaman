@@ -19,4 +19,8 @@ class Peminjaman extends Model
     {
         return $this->belongsTo(Alat::class, 'alat_id');
     }
+    public function detailPeminjaman()
+    {
+        return $this->hasMany(DetailPeminjaman::class, 'peminjaman_id');
+    }
 }

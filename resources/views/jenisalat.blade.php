@@ -4,8 +4,8 @@
 
 @section('content_header')
     <div class="d-flex justify-content-between align-items-center">
-        <h1>Data Alat</h1>
-        <a class="btn btn-primary" href="/tambahalat">Tambahkan <i class="fas fa-plus-circle"></i></a>
+        <h1>Data Jenis Alat</h1>
+        <a class="btn btn-primary" href="/tambahjenisalat">Tambahkan <i class="fas fa-plus-circle"></i></a>
     </div>
 @stop
 
@@ -13,31 +13,25 @@
     <div class="card card-outline card-dark">
         <div class="card-body">
             <!-- Tabel DataTables -->
-            <table id="alatTable" class="table table-bordered table-hover table-responsive-xl">
+            <table id="jenisTable" class="table table-bordered table-hover table-responsive-xl">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama Alat</th>
                         <th>Jenis Alat</th>
-                        <th>Kondisi</th>
-                        <th>Stok Alat</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($alat as $a)
+                    @foreach ($jenis as $a)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $a->nama_alat }}</td>
-                            <td>{{ $a->jenis->jenis_alat }}</td>
-                            <td>{{ $a->kondisi }}</td>
-                            <td>{{ $a->stok }}</td>
+                            <td>{{ $a->jenis_alat }}</td>
                             <td>
                                 <div class="d-flex align-items-center">
-                                    <a href="/editalat/{{ $a->id }}" type="button" class="btn btn-warning">
+                                    <a href="/editjenisalat/{{ $a->id }}" type="button" class="btn btn-warning">
                                         Ubah
                                     </a>
-                                    <form action="/hapusalat/{{ $a->id }}" method="POST" class="ml-2">
+                                    <form action="/hapusjenisalat/{{ $a->id }}" method="POST" class="ml-2">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Kamu Yakin?')">
@@ -64,7 +58,7 @@
     <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#alatTable').DataTable(); // Inisialisasi DataTables untuk tabel dengan id "example"
+            $('#jenisTable').DataTable(); // Inisialisasi DataTables untuk tabel dengan id "example"
         });
     </script>
 @stop

@@ -21,125 +21,89 @@
                         <th>Tanggal Pinjam</th>
                         <th>Tanggal Kembali</th>
                         <th>Status</th>
-                        <th>Nama Alat</th>
-                        <th>Jumlah</th>
-                        <th>Kondisi</th>
+                        <th>Alat</th>
                         <th>Keterangan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <td>1</td>
-                    <td>Alfian Syahrul R</td>
-                    <td>05-10-2024</td>
-                    <td>10-10-2024</td>
-                    <td>Dipinjam</td>
-                    <td>Obeng</td>
-                    <td>1</td>
-                    <td>Baik</td>
-                    <td>Di Gunakan Untuk Pembelajaran</td>
-                    <td>
-                        <div class="d-flex align-items-center">
-                            <a href="/editbarang/" type="button"
-                                class="btn btn-warning">
-                                Ubah
-                            </a>
-                            <form action="/hapus/" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger"
-                                    onclick="return confirm('Apakah Kamu Yakin?')">
-                                    Hapus
+                    @foreach ($peminjaman as $p)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $p->siswa->nama_siswa }}</td>
+                            <td>{{ $p->tanggal_pinjam }}</td>
+                            <td>{{ $p->tanggal_kembali }}</td>
+                            <td>{{ $p->status }}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#detailModal{{ $p->id }}">
+                                    Detail
                                 </button>
-                            </form>
-                        </div>
-                    </td>
+                            </td>
+                            <td>{{ $p->keterangan }}</td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <a href="/editpeminjaman/{{ $p->id }}" type="button" class="btn btn-warning">
+                                        Ubah
+                                    </a>
+                                    <button class="btn btn-success">Kembali</button>
+                                    <form action="/hapuspeminjaman/{{ $p->id }}" method="POST" class="ml-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger"
+                                            onclick="return confirm('Apakah Kamu Yakin?')">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
-    <div class="modal fade" id="modal-peminjaman" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <!-- Modal Detail -->
+    <div class="modal fade" id="detailModal{{ $p->id }}" tabindex="-1"
+        aria-labelledby="detailModalLabel{{ $p->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-lg"> <!-- Tambahkan "modal-lg" jika tabel besar -->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Form Peminjaman</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                    <h5 class="modal-title" id="detailModalLabel{{ $p->id }}">Detail Alat yang Dipinjam</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" id="form-peminjaman">
-                        <!-- Nama Siswa -->
-                        <div class="form-group row">
-                            <label for="nama_siswa" class="col-sm-3 col-form-label">Nama Siswa</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="nama_siswa" name="nama_siswa"
-                                    placeholder="Masukkan Nama Siswa">
-                            </div>
-                        </div>
-                        <!-- Tanggal Pinjam -->
-                        <div class="form-group row">
-                            <label for="tanggal_pinjam" class="col-sm-3 col-form-label">Tanggal Pinjam</label>
-                            <div class="col-sm-9">
-                                <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam">
-                            </div>
-                        </div>
-                        <!-- Tanggal Kembali -->
-                        <div class="form-group row">
-                            <label for="tanggal_kembali" class="col-sm-3 col-form-label">Tanggal Kembali</label>
-                            <div class="col-sm-9">
-                                <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali">
-                            </div>
-                        </div>
-                        <!-- Status -->
-                        <div class="form-group row">
-                            <label for="status" class="col-sm-3 col-form-label">Status</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="status" name="status">
-                                    <option value="">-- Pilih Status --</option>
-                                    <option value="Sedang Dipinjam">Sedang Dipinjam</option>
-                                    <option value="Dikembalikan">Dikembalikan</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Nama Alat -->
-                        <div class="form-group row">
-                            <label for="nama_alat" class="col-sm-3 col-form-label">Nama Alat</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="nama_alat" name="nama_alat"
-                                    placeholder="Masukkan Nama Alat">
-                            </div>
-                        </div>
-                        <!-- Kondisi -->
-                        <div class="form-group row">
-                            <label for="kondisi" class="col-sm-3 col-form-label">Kondisi</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="kondisi" name="kondisi">
-                                    <option value="">-- Pilih Kondisi --</option>
-                                    <option value="Baik">Baik</option>
-                                    <option value="Rusak">Rusak</option>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama Alat</th>
+                                <th>Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($p->detailPeminjaman as $detail)
+                                <tr>
+                                    <td>{{ $detail->alat->nama_alat }}</td>
+                                    <td>{{ $detail->jumlah }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 @stop
 
 @section('css')
     {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 @stop
 
 @section('js')
     <!-- Inisialisasi DataTables -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('vendor/datatables/datatables.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>

@@ -5,14 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alat extends Model
+class JenisAlat extends Model
 {
     use HasFactory;
-    protected $table = 'alat';
+    protected $table = 'jenis_alat';
     protected $guarded = [];
-
-    public function jenis()
-    {
-        return $this->belongsTo(JenisAlat::class, 'jenis_id');
-    }
 }

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tambah Siswa')
+@section('title', 'Tambah Alat')
 
 @section('content_header')
     <h1>Tambah Alat</h1>
@@ -16,6 +16,17 @@
                     <label for="nama_alat">Nama Alat</label>
                     <input type="text" class="form-control" id="nama_alat" name="nama_alat" placeholder="Masukkan Nama Alat"
                         required>
+                </div>
+
+                <!-- Jenis Alat -->
+                <div class="form-group">
+                    <label for="jenis_id">Jenis Alat</label>
+                    <select class="form-control" id="jenis_id" name="jenis_id" required>
+                        <option value="">-- Pilih Jenis Alat --</option>
+                        @foreach($jenis as $a)
+                            <option value="{{ $a->id }}">{{ $a->jenis_alat }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <!-- Kondisi -->
