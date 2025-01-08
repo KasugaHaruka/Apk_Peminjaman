@@ -8,58 +8,113 @@
 
 @section('content')
 <div class="card card-outline card-dark">
-        <div class="card-body">
-            <form action="/peminjaman/{{ $peminjaman->id }}" method="POST">
-                @csrf
-                @method('PUT')
+    <div class="card-body">
+        <form action="/peminjaman/{{ $peminjaman->id }}" method="POST">
+            @csrf
+            @method('PUT')
 
-                <!-- Nama Siswa -->
-                <div class="form-group">
-                    <label for="nama_siswa">Nama Siswa</label>
-                    <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="{{ $peminjaman->nama_siswa }}" required>
-                </div>
+            <!-- Nama Siswa -->
+            <div class="form-group">
+                <label for="siswa_id">Nama Siswa</label>
+                <select class="form-control" id="siswa_id" name="siswa_id" required>
+                    <option value="" disabled>Pilih Siswa</option>
+                    @foreach($siswa as $s)
+                        <option value="{{ $s->id }}" {{ $peminjaman->siswa_id == $s->id ? 'selected' : '' }}>
+                            {{ $s->nama_siswa }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
 
-                <!-- Tanggal Pinjam -->
-                <div class="form-group">
-                    <label for="tanggal_pinjam">Tanggal Pinjam</label>
-                    <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam" value="{{ $peminjaman->tanggal_pinjam }}" required>
-                </div>
+            <!-- Tanggal Pinjam -->
+            <div class="form-group">
+                <label for="tanggal_pinjam">Tanggal Pinjam</label>
+                <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam" value="{{ $peminjaman->tanggal_pinjam }}" required>
+            </div>
 
-                <!-- Tanggal Kembali -->
-                <div class="form-group">
-                    <label for="tanggal_kembali">Tanggal Kembali</label>
-                    <input type="date" class="form-control" id="tanggal_kembali" name="tanggal_kembali" value="{{ $peminjaman->tanggal_kembali }}">
-                </div>
+            <!-- Keterangan -->
+            <div class="form-group">
+                <label for="keterangan">Keterangan</label>
+                <textarea class="form-control" id="keterangan" name="keterangan" rows="3">{{ $peminjaman->keterangan }}</textarea>
+            </div>
 
-                <!-- Status -->
-                <div class="form-group">
-                    <label for="status">Status</label>
-                    <select class="form-control" id="status" name="status" required>
-                        <option value="Sedang Dipinjam" {{ $peminjaman->status == 'Sedang Dipinjam' ? 'selected' : '' }}>Sedang Dipinjam</option>
-                        <option value="Dikembalikan" {{ $peminjaman->status == 'Dikembalikan' ? 'selected' : '' }}>Dikembalikan</option>
-                    </select>
-                </div>
+            <!-- Detail Peminjaman -->
+            <div class="form-group">
+                <label>Alat yang Dipinjam</label>
+                <table class="table table-bordered" id="dynamicAlatTable">
+                    <thead>
+                        <tr>
+                            <th>Nama dan Jenis Alat</th>
+                            <th>Jumlah</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($peminjaman->detailPeminjaman as $index => $detail)
+                        <tr>
+                            <td>
+                                <select class="form-control alat-select" name="alat_id[]" required>
+                                    <option selected disabled>-- Pilih Alat --</option>
+                                    @foreach ($alat as $a)
+                                        <option value="{{ $a->id }}" {{ $detail->alat_id == $a->id ? 'selected' : '' }}>
+                                            {{ $a->nama_alat }} - {{ $a->jenis->jenis_alat }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah"
+                                    value="{{ $detail->jumlah }}" min="1" required>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-danger removeRow">Hapus</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success mt-3" id="addAlatRow">Tambah Alat</button>
+            </div>            
 
-                <!-- Nama Alat -->
-                <div class="form-group">
-                    <label for="nama_alat">Nama Alat</label>
-                    <input type="text" class="form-control" id="nama_alat" name="nama_alat" value="{{ $peminjaman->nama_alat }}" required>
-                </div>
-
-                <!-- Kondisi -->
-                <div class="form-group">
-                    <label for="kondisi">Kondisi</label>
-                    <select class="form-control" id="kondisi" name="kondisi" required>
-                        <option value="Baik" {{ $peminjaman->kondisi == 'Baik' ? 'selected' : '' }}>Baik</option>
-                        <option value="Rusak" {{ $peminjaman->kondisi == 'Rusak' ? 'selected' : '' }}>Rusak</option>
-                    </select>
-                </div>
-
-                <!-- Tombol -->
-                <button type="submit" class="btn btn-primary">Update</button>
-                <a href="/admin/peminjaman" class="btn btn-secondary">Kembali</a>
-            </form>
-        </div>
+            <!-- Tombol -->
+            <button type="submit" class="btn btn-primary mt-3">Update</button>
+            <a href="/admin/peminjaman" class="btn btn-secondary mt-3">Kembali</a>
+        </form>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script>
+    // Fungsi Tambah Baris Alat
+    document.getElementById('addAlatRow').addEventListener('click', function () {
+        const tableBody = document.querySelector('#dynamicAlatTable tbody');
+        const newRow = `
+            <tr>
+                <td>
+                    <select class="form-control alat-select" name="alat_id[]" required>
+                        <option selected disabled>-- Pilih Alat --</option>
+                        @foreach ($alat as $a)
+                            <option value="{{ $a->id }}">{{ $a->nama_alat }} - {{ $a->jenis->jenis_alat }}</option>
+                        @endforeach
+                    </select>
+                </td>
+                <td>
+                    <input type="number" class="form-control" name="jumlah[]" placeholder="Jumlah" min="1" required>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger removeRow">Hapus</button>
+                </td>
+            </tr>
+        `;
+        tableBody.insertAdjacentHTML('beforeend', newRow);
+    });
+
+    // Fungsi Hapus Baris Alat
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('removeRow')) {
+            e.target.closest('tr').remove();
+        }
+    });
+</script>
 @endsection

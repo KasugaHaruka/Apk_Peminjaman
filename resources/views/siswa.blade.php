@@ -28,7 +28,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $s->nama_siswa }}</td>
-                            <td>{{ $s->kelas }}</td>
+                            <td>{{ $s->kelas->nama_kelas }}</td>
                             <td>{{ $s->no_hp }}</td>
                             <td>
                                 <div class="d-flex align-items-center">

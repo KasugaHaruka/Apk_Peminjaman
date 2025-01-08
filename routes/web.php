@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\AlatController;
 use App\Http\Controllers\JenisAlatController;
 use App\Http\Controllers\LaporanController;
@@ -28,6 +29,9 @@ Auth::routes(['reset' => true]);
 // Dasboard Route
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::post('/kembalipeminjaman/{id}', [PeminjamanController::class, 'kembali'])->name('peminjaman.kembali');
+Route::patch('/alat/sudah-diperbaiki/{id}', [LaporanController::class, 'updateStatus']);
+
 // Peminjaman Route
 Route::get('/admin/peminjaman', [PeminjamanController::class, 'index']);
 Route::get('/tambahpeminjaman', [PeminjamanController::class, 'create']);
@@ -45,6 +49,14 @@ Route::post('/simpansiswa', [SiswaController::class, 'store']);
 Route::get('/editsiswa/{id}', [SiswaController::class, 'edit']); 
 Route::put('/siswa/{id}', [SiswaController::class, 'update']);
 Route::delete('/hapussiswa/{id}', [SiswaController::class, 'destroy']);
+
+// Kelas Route
+Route::get('/admin/kelas', [KelasController::class, 'index']);
+Route::get('/tambahkelas', [KelasController::class, 'create']);
+Route::post('/simpankelas', [KelasController::class, 'store']); 
+Route::get('/editkelas/{id}', [KelasController::class, 'edit']); 
+Route::put('/kelas/{id}', [KelasController::class, 'update']);
+Route::delete('/hapuskelas/{id}', [KelasController::class, 'destroy']);
 
 // Alat Route
 Route::get('/admin/alat', [AlatController::class, 'index']);

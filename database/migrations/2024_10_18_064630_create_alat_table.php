@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_alat');
             $table->foreignId('jenis_id')->constrained('jenis_alat')->onDelete('cascade');
-            $table->enum('kondisi',['Baik', 'Rusak']);
+            $table->enum('kondisi_awal',['Baik', 'Rusak']);
             $table->integer('stok');
             $table->timestamps();
         });

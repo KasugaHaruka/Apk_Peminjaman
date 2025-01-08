@@ -31,8 +31,8 @@
 
                 <!-- Kondisi -->
                 <div class="form-group">
-                    <label for="kondisi">Kondisi</label>
-                    <select class="form-control" id="kondisi" name="kondisi" required>
+                    <label for="kondisi_awal">Kondisi</label>
+                    <select class="form-control" id="kondisi_awal" name="kondisi_awal" required>
                         <option value="">-- Pilih Kondisi --</option>
                         <option value="Baik">Baik</option>
                         <option value="Rusak">Rusak</option>

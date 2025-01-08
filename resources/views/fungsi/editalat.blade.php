@@ -32,10 +32,10 @@
 
                 <!-- Kondisi -->
                 <div class="form-group">
-                    <label for="kondisi">Kondisi</label>
-                    <select class="form-control" id="kondisi" name="kondisi" required>
-                        <option value="Baik" {{ $alat->kondisi == 'Baik' ? 'selected' : '' }}>Baik</option>
-                        <option value="Rusak" {{ $alat->kondisi == 'Rusak' ? 'selected' : '' }}>Rusak</option>
+                    <label for="kondisi_awal">Kondisi</label>
+                    <select class="form-control" id="kondisi_awal" name="kondisi_awal" required>
+                        <option value="Baik" {{ $alat->kondisi_awal == 'Baik' ? 'selected' : '' }}>Baik</option>
+                        <option value="Rusak" {{ $alat->kondisi_awal == 'Rusak' ? 'selected' : '' }}>Rusak</option>
                     </select>
                 </div>
 

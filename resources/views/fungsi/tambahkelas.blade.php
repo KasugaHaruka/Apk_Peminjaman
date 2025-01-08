@@ -3,25 +3,25 @@
 @section('title', 'Tambah Alat')
 
 @section('content_header')
-    <h1>Tambah Jenis Alat</h1>
+    <h1>Tambah Kelas</h1>
 @stop
 
 @section('content')
     <div class="card card-outline card-dark">
         <div class="card-body">
-            <form action="/simpanjenisalat" method="POST">
+            <form action="/simpankelas" method="POST">
                 @csrf
 
                 <!-- Jenis Alat -->
                 <div class="form-group">
-                    <label for="jenis_alat">Jenis Alat</label>
-                    <input type="text" class="form-control" id="jenis_alat" name="jenis_alat"
-                        placeholder="Masukkan Jenis Alat" required>
+                    <label for="nama_kelas">Jenis Alat</label>
+                    <input type="text" class="form-control" id="nama_kelas" name="nama_kelas"
+                        placeholder="Masukkan Kelas" required>
                 </div>
 
                 <!-- Tombol -->
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="/admin/jenisalat" class="btn btn-secondary">Kembali</a>
+                <a href="/admin/kelas" class="btn btn-secondary">Kembali</a>
             </form>
         </div>
     </div>

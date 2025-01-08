@@ -21,6 +21,10 @@ class Peminjaman extends Model
     }
     public function detailPeminjaman()
     {
-        return $this->hasMany(DetailPeminjaman::class, 'peminjaman_id');
+        return $this->hasMany(DetailPeminjaman::class);
+    }
+    public function detailKembaliPeminjaman()
+    {
+        return $this->hasMany(DetailKembali::class, 'peminjaman_id');
     }
 }

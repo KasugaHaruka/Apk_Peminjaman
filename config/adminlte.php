@@ -302,10 +302,6 @@ return [
 
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
             'text' => 'Beranda',
             'url' => '/home',
             'icon' => 'fas fa-fw fa-home',
@@ -314,6 +310,11 @@ return [
             'text' => 'Siswa',
             'url' => 'admin/siswa',
             'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Kelas',
+            'url' => 'admin/kelas',
+            'icon' => 'fas fa-fw fa-school',
         ],
         [
             'text' => 'Alat',
@@ -398,12 +399,12 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css',
                 ],
             ],
         ],

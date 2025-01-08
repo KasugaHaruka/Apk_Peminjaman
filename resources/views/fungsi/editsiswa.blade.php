@@ -22,9 +22,13 @@
 
                 <!-- kelas -->
                 <div class="form-group">
-                    <label for="kelas">Kelas</label>
-                    <input type="text" class="form-control" id="kelas" name="kelas"
-                        value="{{ $siswa->kelas }}" placeholder="kelas" required>
+                    <label for="kelas_id">Kelas</label>
+                    <select class="form-control" id="kelas_id" name="kelas_id" required>
+                        <option value="">-- Pilih Kelas --</option>
+                        @foreach($kelas as $a)
+                            <option value="{{ $a->id }}"{{$siswa->kelas_id == $a->id ? 'selected' : '' }}>{{ $a->nama_kelas }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <!-- No HP -->

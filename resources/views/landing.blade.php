@@ -24,7 +24,7 @@
 
 <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
     <!--Nav-->
-    <nav id="header" class="fixed w-full z-30 top-0 bg-white text-black shadow">
+    <nav id="header" class="fixed w-full z-30 top-0 text-black shadow">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between py-2">
             <div class="pl-4 flex items-center">
                 <a class="text-gray no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
@@ -35,7 +35,7 @@
             <!-- Bagian kanan (Button Login di row yang sama) -->
             <div class="lg:flex lg:items-center justify-end flex">
                 <a id="navAction"
-                    class="hover:underline bg-blue-500 text-white font-bold rounded-full py-2 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                    class="hover:underline text-white font-bold rounded-full py-2 px-6 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
                     href="/home">
                     Login
                 </a>

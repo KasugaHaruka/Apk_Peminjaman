@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\Kelas;
 
 class SiswaController extends Controller
 {
@@ -21,7 +22,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('fungsi.tambahsiswa');
+        $kelas = Kelas::all();
+        return view('fungsi.tambahsiswa', compact('kelas'));
     }
 
     /**
@@ -47,8 +49,9 @@ class SiswaController extends Controller
      */
     public function edit(string $id)
     {
+        $kelas = Kelas::all();
         $siswa = Siswa::find($id);
-        return view('fungsi.editsiswa',compact(['siswa']));
+        return view('fungsi.editsiswa',compact(['siswa','kelas']));
     }
 
     /**

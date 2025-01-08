@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('kembali_peminjaman', function (Blueprint $table) {
             $table->id();
             $table->foreignId('peminjaman_id')->references('id')->on('peminjaman')->onDelete('cascade');
-            $table->foreignId('alat_id')->references('id')->on('alat')->onDelete('cascade');
-            $table->enum('kondisi', ['Baik', 'Rusak']);
-            $table->integer('jumlah');
             $table->text('keterangan')->nullable();
             $table->timestamps();
         });

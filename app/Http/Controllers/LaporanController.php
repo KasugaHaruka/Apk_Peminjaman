@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\KembaliPeminjaman;
+use App\Models\DetailKembali;
+use App\Models\Alat;
 
 class LaporanController extends Controller
 {
@@ -11,7 +14,12 @@ class LaporanController extends Controller
      */
     public function index()
     {
-        return view('laporan');
+        $laporanPengembalian = KembaliPeminjaman::all();
+        $laporanDetailKembali = DetailKembali::with('alat.jenis')
+        ->where('kondisi_akhir', 'Rusak')
+        ->get();
+
+        return view('laporan', compact('laporanPengembalian','laporanDetailKembali'));
     }
 
     /**
@@ -61,4 +69,30 @@ class LaporanController extends Controller
     {
         //
     }
+    public function sudahDiperbaiki($id)
+    {
+        // Temukan alat berdasarkan ID
+        $alat = Alat::findOrFail($id);
+
+        // Update kondisi menjadi "Baik"
+        $alat->kondisi_awal = 'Baik';
+        $alat->save();
+
+        // Redirect ke halaman sebelumnya dengan pesan sukses
+        return redirect()->back()->with('success', 'Status alat berhasil diperbarui menjadi Baik.');
+    }
+    public function updateStatus($id)
+    {
+        $detail = DetailKembali::findOrFail($id);
+    
+        if ($detail->kondisi_akhir === 'Rusak') {
+            $detail->kondisi_akhir = 'Baik';
+            $detail->save();
+    
+            return redirect()->back()->with('success', 'Status alat berhasil diperbarui.');
+        }
+    
+        return redirect()->back()->with('error', 'Status alat tidak dapat diubah.');
+    }
+    
 }
