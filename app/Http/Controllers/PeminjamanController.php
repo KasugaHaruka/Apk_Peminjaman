@@ -191,7 +191,13 @@ class PeminjamanController extends Controller
         $peminjaman->tanggal_kembali = now(); // Set tanggal kembali ke tanggal hari ini
         $peminjaman->save();
 
-        // Kembalikan stok alat dan simpan data pengembalian
+        // Buat satu entri di tabel `kembali_peminjaman`
+        $kembaliPeminjaman = KembaliPeminjaman::create([
+            'peminjaman_id' => $peminjaman->id,
+            'keterangan' => $request->keterangan_kembali, // Keterangan pengembalian
+        ]);
+
+        // Iterasi setiap detail peminjaman untuk mengembalikan alat
         foreach ($peminjaman->detailPeminjaman as $detail) {
             // Temukan alat yang dipinjam
             $alat = Alat::find($detail->alat_id);
@@ -204,12 +210,6 @@ class PeminjamanController extends Controller
                 $alat->stok += $detail->jumlah;
                 $alat->save();
             }
-
-            // Simpan data ke `kembali_peminjaman` (untuk laporan pengembalian)
-            $kembaliPeminjaman = KembaliPeminjaman::create([
-                'peminjaman_id' => $peminjaman->id,
-                'keterangan' => $request->keterangan_kembali, // Keterangan pengembalian
-            ]);
 
             // Simpan data detail ke `detail_kembali_peminjaman`
             DetailKembali::create([

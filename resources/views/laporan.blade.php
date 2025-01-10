@@ -82,7 +82,7 @@
                             <th>Jenis Alat</th>
                             <th>Jumlah Rusak</th>
                             <th>Kondisi</th>
-                            <th>Tindakan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
